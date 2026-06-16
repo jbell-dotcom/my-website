@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paramount Resources Director Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="https://www.paramountres.com/" target="_blank" rel="noopener" aria-label="Paramount Resources website">
+        <div class="brand-mark">P</div>
+        <div><strong>Paramount</strong><span>Resources Ltd.</span></div>
+      </a>
+      <nav class="side-nav" aria-label="Dashboard sections">
+        <button class="nav-item active" data-tab="markets"><span>01</span> Markets</button>
+        <button class="nav-item" data-tab="stories"><span>02</span> Top Stories</button>
+        <button class="nav-item" data-tab="views"><span>03</span> Market Views</button>
+        <button class="nav-item" data-tab="docs"><span>04</span> Public Documents</button>
+      </nav>
+      <div class="sidebar-card">
+        <span class="mini-label">Board lens</span>
+        <p>Montney, Duvernay, AECO, WTI, capital returns and peer positioning.</p>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">Director Dashboard</div>
+          <h1>POU Board Dashboard</h1>
+          <p>Realtime market monitor, news intake, analyst themes and disclosure library.</p>
+        </div>
+        <div class="status-panel">
+          <span id="clock">Loading...</span>
+          <button id="refreshBtn">Refresh data</button>
+        </div>
+      </header>
+
+      <section class="hero-grid">
+        <article class="feature-card quote-card">
+          <div class="card-top"><span class="mini-label">TSX: POU</span><span class="pill">Live quote slot</span></div>
+          <div class="quote-line"><span id="pouPrice">Loading...</span><small id="pouChange"></small></div>
+          <div class="quote-meta" id="pouMeta">Production version should connect to TMX, Bloomberg, FactSet, Refinitiv or another licensed market-data feed.</div>
+        </article>
+        <article class="feature-card dividend-card">
+          <div class="card-top"><span class="mini-label">Latest investor site data</span><span class="pill soft">Dividend</span></div>
+          <div class="dividend-value">$0.05 <span>/ share</span></div>
+          <div class="kv"><span>Record date</span><strong>Jun. 15, 2026</strong></div>
+          <div class="kv"><span>Payable date</span><strong>Jun. 30, 2026</strong></div>
+        </article>
+        <article class="feature-card alerts-card">
+          <span class="mini-label">Today’s watchlist</span>
+          <ul>
+            <li>AECO / NYMEX gas spread</li>
+            <li>WTI and CAD/USD sensitivity</li>
+            <li>Peer multiple and FCF yield moves</li>
+            <li>POU releases and analyst actions</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="markets" class="panel active">
+        <div class="section-head">
+          <div><span class="mini-label">Section 1</span><h2>Market Data</h2></div>
+          <p>Board-ready quote board with production hooks for licensed realtime pricing.</p>
+        </div>
+        <div class="grid two">
+          <article class="card table-card">
+            <div class="card-heading"><h3>POU peer quote board</h3><span class="pill soft">Sample data</span></div>
+            <table id="peerTable"><thead><tr><th>Ticker</th><th>Name</th><th>Price</th><th>Change</th><th>Volume</th></tr></thead><tbody></tbody></table>
+          </article>
+          <article class="card">
+            <div class="card-heading"><h3>Commodities & FX</h3><span class="pill soft">API slots</span></div>
+            <div id="commodityGrid" class="metric-grid"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="stories" class="panel">
+        <div class="section-head">
+          <div><span class="mini-label">Section 2</span><h2>Top Stories</h2></div>
+          <p>Aggregates Paramount releases, peer news and western Canadian oil and gas sector developments.</p>
+        </div>
+        <div class="filters">
+          <button class="chip active" data-filter="all">All</button><button class="chip" data-filter="pou">POU</button><button class="chip" data-filter="peers">Peers</button><button class="chip" data-filter="sector">WCSB / sector</button><button class="chip" data-filter="regulatory">Regulatory</button>
+        </div>
+        <div id="storyList" class="story-list"></div>
+      </section>
+
+      <section id="views" class="panel">
+        <div class="section-head">
+          <div><span class="mini-label">Section 3</span><h2>Market Views</h2></div>
+          <p>Broker research summary area for licensed analyst material, themes and Q&A tracking.</p>
+        </div>
+        <div class="grid three" id="themeGrid"></div>
+        <article class="card wide"><div class="card-heading"><h3>Analyst questions to track</h3><span class="pill soft">Board prep</span></div><ol id="questions"></ol></article>
+      </section>
+
+      <section id="docs" class="panel">
+        <div class="section-head">
+          <div><span class="mini-label">Section 4</span><h2>POU Public Documents</h2></div>
+          <p>One-click access to Paramount investor pages, SEDAR+ and the current corporate presentation.</p>
+        </div>
+        <div id="docGrid" class="doc-grid"></div>
+      </section>
+
+      <footer>Prototype for director use. Verify market data, broker summaries and disclosure links against licensed or primary sources before board reliance.</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
